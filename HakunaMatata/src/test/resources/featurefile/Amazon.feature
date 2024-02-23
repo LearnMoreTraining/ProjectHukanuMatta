@@ -4,7 +4,7 @@ Feature: Amazon Functional Check
   Scenario: Mouse hower action
     Given user hower over the account and list
 
-    @drag
+    @change
   Scenario: Drag and Drop
     Given user perform drag and drop operation
 
