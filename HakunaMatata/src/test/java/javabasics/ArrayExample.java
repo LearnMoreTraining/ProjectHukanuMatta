@@ -6,10 +6,18 @@ public class ArrayExample {
 
        int [] a = {23,56,78,56}; //0,1,2
 
+        for(int r:a){
+            System.out.println(r);
+        }
+
         char[] h = {'a','g','b'};
         System.out.println(h[0]);
 
        String [] m = {"aravinth","learnmore"}; //0,1
+
+        for(String e:m){
+            System.out.println(e);
+        }
 
 
         for(int k =0 ;k <m.length ; k++){

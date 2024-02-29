@@ -76,10 +76,17 @@ public class LoginValidationSteps extends LaunchBrowser {
        // selectCurrency.selectByVisibleText("OMR");
         selectCurrency.selectByValue("KWD");
 
+
+
+        List <WebElement> s = currencyElement.findElements(By.tagName("option"));
+        List<String> hh = new ArrayList<String>();
+        for(WebElement g:s){
+            hh.add( g.getText());
+        }
+        System.out.println(hh);
+
         int currencySize = currencyElement.findElements(By.tagName("option")).size();
-
         System.out.println(currencySize);
-
         for(int j=0; j < currencySize ; j++){
 
             String currencyValue =currencyElement.findElements(By.tagName("option")).get(j).getText();

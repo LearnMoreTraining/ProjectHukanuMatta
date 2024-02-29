@@ -25,11 +25,19 @@ public class ListExample {
 
         System.out.println(l);
 
+        for(int o:l){
+            System.out.println(o);
+        }
+
 
         List <String> k = new ArrayList<>();
         k.add("abc");
         k.add("12");
         System.out.println(k);
+
+        for(String d:k){
+            System.out.println(d);
+        }
 
         System.out.println( k.get(0));
 
