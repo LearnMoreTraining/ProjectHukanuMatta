@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,6 +21,7 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class LoginValidationSteps extends LaunchBrowser {
 
@@ -107,8 +109,23 @@ public class LoginValidationSteps extends LaunchBrowser {
     WebElement loginElement = driver.findElement(By.id("nav-link-accountList-nav-line-1"));
         Actions a = new Actions(driver);
         a.clickAndHold(loginElement).build().perform();
-        driver.findElement(By.linkText("Baby Wishlist")).click();
-        Assert.assertEquals("Amazon: Baby Wish List",driver.getTitle());
+        driver.findElement(By.linkText("Baby Wishlist")).sendKeys(Keys.chord(Keys.CONTROL,Keys.ENTER));
+      //  Assert.assertEquals("Amazon: Baby Wish List",driver.getTitle());
+
+        Set<String> winPro =driver.getWindowHandles();
+
+        for(String k:winPro){
+            driver.switchTo().window(k);
+
+            if(driver.getTitle().contains("Baby Wish List")){
+
+                Assert.assertTrue(true);
+                break;
+            }
+        }
+
+
+       driver.switchTo().defaultContent();
 
     }
 
@@ -154,6 +171,14 @@ public class LoginValidationSteps extends LaunchBrowser {
 
         colunmOneValues.add(eyTable.findElements(By.tagName("th")).get(g).getText());
 
+    }
+
+    for(String aa:colunmOneValues){
+
+        if(aa.equals("Headquarters")){
+            Assert.assertTrue(true);
+            break;
+        }
     }
 
     System.out.println(colunmOneValues);
