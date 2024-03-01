@@ -7,7 +7,7 @@ import resuable.LaunchBrowser;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class Hooks {
+public class Hooks extends LaunchBrowser {
 
 
     @Before
@@ -20,6 +20,8 @@ public class Hooks {
 
     @After
     public void end(){
+
+        driver.quit();
 
     }
 }
