@@ -8,3 +8,7 @@ Feature: Amazon Functional Check
   Scenario: Drag and Drop
     Given user perform drag and drop operation
 
+      @Am01
+  Scenario: Add to cart
+    Given user search the product
+

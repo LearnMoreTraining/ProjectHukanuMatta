@@ -7,14 +7,14 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import resuable.LaunchBrowser;
+import pageobjects.HomePage;
+import pageobjects.SearchResultPage;
+import resuable.BaseCode;
 import resuable.ReadExcel;
 
 import java.io.IOException;
@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class LoginValidationSteps extends LaunchBrowser {
+public class LoginValidationSteps extends BaseCode {
 
 
 @Given("user should navigate to URL")
@@ -104,7 +104,6 @@ public class LoginValidationSteps extends LaunchBrowser {
 
     @Given("user hower over the account and list")
     public void userHowerOverTheAccountAndList() {
-
 
     WebElement loginElement = driver.findElement(By.id("nav-link-accountList-nav-line-1"));
         Actions a = new Actions(driver);
@@ -205,5 +204,12 @@ public class LoginValidationSteps extends LaunchBrowser {
             System.out.println(fyTable.findElements(By.xpath("//tr//td[4]")).get(k).getText());
         }
 
+    }
+
+    @Given("user search the product")
+    public void userSearchTheProduct() {
+        HomePage.enterProduct("iphone");
+        HomePage.clickSearchIcon();
+        Assert.assertEquals("Amazon.in : avc", SearchResultPage.getTitle());
     }
 }
