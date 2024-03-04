@@ -2,18 +2,17 @@ package stepdefinationfile;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import resuable.LaunchBrowser;
+import resuable.BaseCode;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class Hooks extends LaunchBrowser {
+public class Hooks extends BaseCode {
 
 
     @Before
     public void setup() throws IOException {
 
-        LaunchBrowser l = new LaunchBrowser();
+        BaseCode l = new BaseCode();
         l.navigateToUrl();
 
     }
