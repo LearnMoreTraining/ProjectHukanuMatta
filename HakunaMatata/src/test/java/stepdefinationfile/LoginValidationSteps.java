@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageobjects.HomePage;
 import pageobjects.SearchResultPage;
+import pageobjects.SignInpage;
 import resuable.BaseCode;
 import resuable.ReadExcel;
 
@@ -208,6 +209,12 @@ public class LoginValidationSteps extends BaseCode {
 
     @Given("user search the product")
     public void userSearchTheProduct() {
+
+        HomePage.clickLoginButton();
+        SignInpage.enterEmailId();
+        SignInpage.clickContinue();
+        SignInpage.enterPassword();
+        SignInpage.clickSignIn();
         HomePage.enterProduct("iphone");
         HomePage.clickSearchIcon();
         Assert.assertEquals("Amazon.in : avc", SearchResultPage.getTitle());
