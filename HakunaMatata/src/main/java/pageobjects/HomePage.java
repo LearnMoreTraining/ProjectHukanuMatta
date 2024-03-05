@@ -1,6 +1,8 @@
 package pageobjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import resuable.BaseCode;
 
 public class HomePage extends BaseCode {
@@ -14,9 +16,11 @@ public class HomePage extends BaseCode {
         driver.findElement(By.id("nav-search-submit-button")).click();
     }
 
-    public void clickLoginButton(){
-
-
+    public static void clickLoginButton(){
+        WebElement signInElement = driver.findElement(By.id("nav-link-accountList-nav-line-1"));
+        Actions a = new Actions(driver);
+        a.clickAndHold(signInElement).build().perform();
+        driver.findElement(By.linkText("Sign in")).click();
     }
 
 }

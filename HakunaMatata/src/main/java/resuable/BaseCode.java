@@ -16,11 +16,13 @@ public class BaseCode {
 
     public static WebDriver driver;
 
+   public static Properties prob;
+
     public void navigateToUrl() throws IOException {
 
         FileInputStream fis = new FileInputStream(new File("src/main/resources/configuration/config.properties"));
 
-        Properties prob = new Properties();
+        prob = new Properties();
         prob.load(fis);
 //        if(prob.getProperty("browser").equalsIgnoreCase("chrome")){
 //            driver = new ChromeDriver();
