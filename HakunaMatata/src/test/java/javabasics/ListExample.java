@@ -10,6 +10,7 @@ public class ListExample {
         List<Integer> l = new ArrayList();
         l.add(34);
         l.add(56);
+        l.add(1,23);
 
         System.out.println(l);
 

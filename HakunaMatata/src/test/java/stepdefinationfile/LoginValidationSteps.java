@@ -112,6 +112,7 @@ public class LoginValidationSteps extends BaseCode {
         driver.findElement(By.linkText("Baby Wishlist")).sendKeys(Keys.chord(Keys.CONTROL,Keys.ENTER));
       //  Assert.assertEquals("Amazon: Baby Wish List",driver.getTitle());
 
+
         Set<String> winPro =driver.getWindowHandles();
 
         for(String k:winPro){
@@ -204,6 +205,9 @@ public class LoginValidationSteps extends BaseCode {
 
             System.out.println(fyTable.findElements(By.xpath("//tr//td[4]")).get(k).getText());
         }
+
+       boolean a= driver.findElement(By.id("ControlGroupSearchView_AvailabilitySearchInputSearchView_OneWay")).isSelected();
+        Assert.assertTrue(a);
 
     }
 

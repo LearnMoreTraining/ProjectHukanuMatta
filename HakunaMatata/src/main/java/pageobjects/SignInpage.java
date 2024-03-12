@@ -26,4 +26,10 @@ public class SignInpage extends BaseCode {
         driver.findElement(By.id("signInSubmit")).click();
     }
 
+    public static boolean checkField(){
+
+       
+       return driver.findElement(By.id("ControlGroupSearchView_AvailabilitySearchInputSearchView_OneWay")).isDisplayed();
+    }
+
 }
