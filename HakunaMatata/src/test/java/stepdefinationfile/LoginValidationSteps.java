@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pageobjects.HomePage;
 import pageobjects.SearchResultPage;
 import pageobjects.SignInpage;
+import pageobjects.WikiPage;
 import resuable.BaseCode;
 import resuable.ReadExcel;
 
@@ -162,6 +163,7 @@ public class LoginValidationSteps extends BaseCode {
     @Given("handle the table")
     public void handleTheTable() {
 
+        WikiPage.getValue(1,3);
     WebElement eyTable = driver.findElement(By.cssSelector(".infobox.vcard"));
 
    int columnOneSize = eyTable.findElements(By.tagName("th")).size();
